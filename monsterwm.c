@@ -696,6 +696,8 @@ void next_desktop(void) {
     change_desktop(&(Arg){.i = nextdeskidx});
 }
 
+/* TODO  method prev_desktop() */
+
 /**
  * a map request is received when a window wants to display itself.
  * if the window has override_redirect flag set,
