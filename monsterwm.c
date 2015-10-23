@@ -87,6 +87,7 @@ static void move_down();
 static void move_up();
 static void moveresize(const Arg *arg);
 static void mousemotion(const Arg *arg);
+static void next_desktop(const Arg *arg);
 static void next_win();
 static void prev_win();
 static void quit(const Arg *arg);
@@ -682,6 +683,17 @@ void killclient(void) {
  */
 void last_desktop(void) {
     change_desktop(&(Arg){.i = prevdeskidx});
+}
+
+/**
+ * focus the next desktop
+ */
+void next_desktop(void) {
+    int nextdeskidx = currdeskidx+1;
+    if (nextdeskidx > DESKTOPS) {
+        nextdeskidx = 0;
+    }
+    change_desktop(&(Arg){.i = nextdeskidx});
 }
 
 /**
